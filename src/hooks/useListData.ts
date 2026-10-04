@@ -32,7 +32,9 @@ export function useListData(inicial: DadosLista) {
   const [dados, setDados] = useState(inicial);
   const [erro, setErro] = useState(false);
   const urlsRef = useRef(inicial.urls);
-  urlsRef.current = dados.urls;
+  useEffect(() => {
+    urlsRef.current = dados.urls;
+  }, [dados.urls]);
 
   const assinarNovas = useCallback(
     async (imagens: ItemImagem[]) => {

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f4ef">
+<title>Sem conexão · Enxoval</title>
+<style>
+  body { margin: 0; min-height: 100dvh; display: grid; place-items: center; background: #f7f4ef; color: #2a2825;
+         font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center; padding: 1rem; }
+  img { width: 72px; height: 72px; border-radius: 18px; }
+  h1 { font-size: 1.375rem; margin: 1rem 0 .5rem; }
+  p { color: #625c53; margin: 0 0 1.5rem; }
+  button { font: inherit; font-weight: 600; background: #4a6a4d; color: #fff; border: 0; border-radius: .625rem; padding: .75rem 1.25rem; min-height: 44px; }
+  button:focus-visible { outline: 3px solid #2f5f8f; outline-offset: 2px; }
+</style>
+</head>
+<body>
+<main>
+  <img src="/icons/icon.svg" alt="">
+  <!-- Textos espelham src/i18n/pt-BR.ts (pwa.offline / pwa.offlineDica): página estática servida sem o app. -->
+  <h1>Você está sem conexão.</h1>
+  <p>O Enxoval precisa de internet para mostrar e salvar a lista.</p>
+  <button onclick="location.reload()">Tentar de novo</button>
+</main>
+</body>
+</html>
