@@ -216,7 +216,6 @@ export function ItemForm({ listId, categorias, item, imagensIniciais = [], urlIn
           value={preco}
           inputMode="decimal"
           placeholder={t.form.placeholderPreco}
-          opcional={t.comum.opcional}
           onChange={(e) => {
             editados.current.add("preco");
             setPreco(e.target.value);

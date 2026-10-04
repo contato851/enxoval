@@ -17,3 +17,6 @@ export function destinoSeguro(next: string | null | undefined, padrao = "/"): st
   if (!next || !next.startsWith("/") || next.startsWith("//") || next.startsWith("/\\")) return padrao;
   return next;
 }
+
+/** Cookie com o caminho para onde ir depois do magic link (ex.: um convite). */
+export const COOKIE_DESTINO = "pos_login";

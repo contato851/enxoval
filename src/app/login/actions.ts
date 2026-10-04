@@ -1,5 +1,6 @@
 "use server";
-import { emailPermitido, destinoSeguro } from "@/lib/auth/allowlist";
+import { cookies } from "next/headers";
+import { COOKIE_DESTINO, emailPermitido, destinoSeguro } from "@/lib/auth/allowlist";
 import { siteUrl } from "@/lib/site";
 import { createClient } from "@/lib/supabase/server";
 import { t } from "@/i18n";
@@ -18,8 +19,15 @@ export async function enviarLink(_: EstadoLogin, form: FormData): Promise<Estado
   }
 
   const supabase = await createClient();
+  // O destino pós-login vai num cookie: a URL de retorno fica fixa e bate com a lista
+  // de Redirect URLs do Supabase sem depender de query string.
+  const cookieStore = await cookies();
+  if (next !== "/") {
+    cookieStore.set(COOKIE_DESTINO, next, { httpOnly: true, sameSite: "lax", maxAge: 60 * 60, path: "/" });
+  } else {
+    cookieStore.delete(COOKIE_DESTINO);
+  }
   const callback = new URL("/auth/callback", await siteUrl());
-  if (next !== "/") callback.searchParams.set("next", next);
 
   const { error } = await supabase.auth.signInWithOtp({
     email,

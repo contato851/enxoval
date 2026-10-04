@@ -3,7 +3,7 @@ import { Baby } from "lucide-react";
 import { t } from "@/i18n";
 import { LoginForm } from "./LoginForm";
 
-export const metadata: Metadata = { title: t.login.titulo };
+export const metadata: Metadata = { title: { absolute: t.login.titulo } };
 
 const ERROS: Record<string, string> = {
   nao_autorizado: t.login.naoAutorizado,

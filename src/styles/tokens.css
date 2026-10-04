@@ -13,7 +13,7 @@
   --color-superficie: #ffffff;
   --color-superficie-suave: #f1ece4; /* fundo da área de imagem */
   --color-borda: #e2dbd0;
-  --color-borda-forte: #c9bfb0;
+  --color-borda-forte: #8c8273; /* bordas de campos: 3.7:1 (WCAG 1.4.11) */
   --color-texto: #2a2825;
   --color-texto-suave: #625c53; /* 6.0:1 sobre o fundo */
   --color-sobreposicao: rgb(42 40 37 / 0.45);

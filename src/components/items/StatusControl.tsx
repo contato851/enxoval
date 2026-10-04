@@ -34,12 +34,12 @@ export function StatusControl({
             aria-pressed={ativo}
             onClick={() => !ativo && aoMudar(s)}
             className={cn(
-              "flex h-11 items-center justify-center gap-1 rounded-controle border px-1 text-xs font-semibold transition-colors",
+              "flex h-13 flex-col items-center justify-center gap-0.5 rounded-controle border px-1 text-xs font-semibold leading-4 transition-colors",
               ativo ? ATIVO[s] : "border-borda bg-superficie text-texto-suave hover:bg-superficie-suave",
             )}
           >
             <Icone aria-hidden className="size-4 shrink-0" />
-            <span className="truncate">{t.status[s]}</span>
+            <span className="max-w-full truncate">{t.status[s]}</span>
           </button>
         );
       })}

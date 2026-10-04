@@ -1,6 +1,6 @@
 "use client";
 import { PackageOpen, Plus, SearchX } from "lucide-react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { CategoryTabs } from "@/components/categories/CategoryTabs";
 import { FilterBar } from "@/components/filters/FilterBar";
@@ -30,7 +30,6 @@ const GRID_ID = "grid-itens";
 export function ListaView({ inicial }: { inicial: DadosLista }) {
   const { dados, erro, recarregar, mudarStatus, excluirItem } = useListData(inicial);
   const avisar = useToast();
-  const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
 
@@ -63,7 +62,8 @@ export function ListaView({ inicial }: { inicial: DadosLista }) {
     if ("prioridade" in f) set("prio", f.prioridade);
     if ("busca" in f) set("q", f.busca?.trim());
     const qs = p.toString();
-    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    // history.replaceState atualiza a URL (e o useSearchParams) sem ir ao servidor.
+    window.history.replaceState(null, "", qs ? `${pathname}?${qs}` : pathname);
   }
 
   const imagensPorItem = useMemo(() => {

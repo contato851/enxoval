@@ -37,9 +37,7 @@ export function FilterBar({ filtros, busca, aoBuscar, aoMudar }: Props) {
             onChange={(e) => aoMudar({ status: (e.target.value || null) as StatusItem | null })}
             className={cn(campoClasses, "h-11 sm:w-40")}
           >
-            <option value="">
-              {t.filtros.status}: {t.filtros.todos}
-            </option>
+            <option value="">{t.filtros.todosStatus}</option>
             {STATUS.map((s) => (
               <option key={s} value={s}>
                 {t.status[s]}
@@ -54,9 +52,7 @@ export function FilterBar({ filtros, busca, aoBuscar, aoMudar }: Props) {
             onChange={(e) => aoMudar({ prioridade: (e.target.value || null) as PrioridadeItem | null })}
             className={cn(campoClasses, "h-11 sm:w-44")}
           >
-            <option value="">
-              {t.filtros.prioridade}: {t.filtros.todas}
-            </option>
+            <option value="">{t.filtros.todasPrioridades}</option>
             {PRIORIDADES.map((p) => (
               <option key={p} value={p}>
                 {t.prioridade[p]}
