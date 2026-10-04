@@ -5,7 +5,8 @@ import { supabasePublicEnv } from "./env";
 
 /**
  * Cliente com a chave secreta: ignora RLS. Usado SOMENTE para excluir a conta
- * (remover arquivos e o usuário do Auth). Nunca importe isto em código de cliente.
+ * (remover arquivos e o usuário do Auth) e abrir a sessão da conta compartilhada.
+ * Nunca importe isto em código de cliente.
  */
 export function createAdminClient() {
   const { url } = supabasePublicEnv();
