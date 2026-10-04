@@ -46,6 +46,14 @@ export const amazon: Extractor = {
       }
     });
 
-    return { titulo, preco, imagens: normalizarImagens(imagens, url) };
+    // A mesma foto aparece em vários tamanhos (._AC_SX300_, ._AC_SL1500_...): fica a primeira de cada.
+    const vistas = new Set<string>();
+    const unicas = imagens.filter((u) => {
+      const chave = u.replace(/\._[^/]*_\./, ".");
+      if (vistas.has(chave)) return false;
+      vistas.add(chave);
+      return true;
+    });
+    return { titulo, preco, imagens: normalizarImagens(unicas, url) };
   },
 };

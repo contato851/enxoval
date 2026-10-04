@@ -31,8 +31,8 @@ describe("extractFromHtml", () => {
     expect(r.titulo).toBe("Babá Eletrônica com Câmera Wi-Fi e Visão Noturna");
     expect(r.preco).toBe(349);
     expect(r.imagens[0]).toBe("https://m.media-amazon.com/images/I/71abc._AC_SL1500_.jpg");
-    expect(r.imagens[1]).toBe("https://m.media-amazon.com/images/I/71abc._AC_SX679_.jpg");
-    expect(r.imagens).toContain("https://m.media-amazon.com/images/I/61xyz._AC_SL1200_.jpg");
+    expect(r.imagens[1]).toBe("https://m.media-amazon.com/images/I/61xyz._AC_SL1200_.jpg");
+    expect(r.imagens).toHaveLength(2); // a mesma foto em outros tamanhos não se repete
     expect(r.imagens.some((u) => u.includes("transparent-pixel"))).toBe(false);
   });
 
