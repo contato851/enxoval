@@ -31,18 +31,26 @@ export async function atualizarSessao(request: NextRequest) {
 
   const logado = Boolean(claims?.sub) && emailPermitido(claims?.email as string | undefined);
 
-  if (!logado && !publica) {
+  // Sem sessão, entra direto na conta compartilhada (ver lib/auth/conta-compartilhada.ts).
+  if (!logado && (!publica || caminho === "/login")) {
     if (caminho.startsWith("/api/")) {
       return NextResponse.json({ ok: false, erro: "nao_autenticado" }, { status: 401 });
     }
     const destino = request.nextUrl.clone();
-    destino.pathname = "/login";
+    destino.pathname = "/auth/entrar";
     destino.search = "";
-    if (caminho !== "/") destino.searchParams.set("next", caminho + request.nextUrl.search);
-    if (claims?.sub) destino.searchParams.set("erro", "nao_autorizado");
+    const next = caminho === "/login" ? request.nextUrl.searchParams.get("next") : caminho + request.nextUrl.search;
+    if (next && next !== "/") destino.searchParams.set("next", next);
     const redirect = NextResponse.redirect(destino);
     response.cookies.getAll().forEach((c) => redirect.cookies.set(c));
     return redirect;
+  }
+
+  if (logado && caminho === "/login") {
+    const inicio = request.nextUrl.clone();
+    inicio.pathname = "/";
+    inicio.search = "";
+    return NextResponse.redirect(inicio);
   }
 
   // Lembra a última lista aberta para a página inicial abrir direto nela.

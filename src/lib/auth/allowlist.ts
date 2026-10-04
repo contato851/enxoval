@@ -1,9 +1,12 @@
+import { CONTA_COMPARTILHADA } from "./conta-compartilhada";
+
 /**
  * Allowlist de cadastro. Com ALLOWED_EMAILS definida, só esses emails entram.
  * Sem a variável (ou vazia), o cadastro fica aberto. Só roda no servidor.
  */
 export function emailPermitido(email: string | null | undefined): boolean {
   if (!email) return false;
+  if (email.trim().toLowerCase() === CONTA_COMPARTILHADA) return true;
   const lista = (process.env.ALLOWED_EMAILS ?? "")
     .split(/[,;\s]+/)
     .map((e) => e.trim().toLowerCase())
