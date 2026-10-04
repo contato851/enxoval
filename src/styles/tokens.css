@@ -1,0 +1,82 @@
+/*
+ * Tokens de design do Enxoval. ÚNICO lugar com cores, espaçamentos, raios e tipografia.
+ * A paleta padrão do Tailwind é desligada: só existem as classes geradas daqui
+ * (ex.: bg-fundo, text-texto, rounded-card, shadow-card).
+ */
+@theme {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* Base: areia e grafite, neutros e acolhedores. */
+  --color-fundo: #f7f4ef;
+  --color-superficie: #ffffff;
+  --color-superficie-suave: #f1ece4; /* fundo da área de imagem */
+  --color-borda: #e2dbd0;
+  --color-borda-forte: #8c8273; /* bordas de campos: 3.7:1 (WCAG 1.4.11) */
+  --color-texto: #2a2825;
+  --color-texto-suave: #625c53; /* 6.0:1 sobre o fundo */
+  --color-sobreposicao: rgb(42 40 37 / 0.45);
+
+  /* Destaque: verde-sálvia. Texto branco sobre ele: 5.9:1. */
+  --color-destaque: #4a6a4d;
+  --color-destaque-forte: #3a553d;
+  --color-destaque-suave: #e4ece2;
+
+  /* Prioridade essencial: terracota suave. 5.3:1 sobre o tom suave. */
+  --color-essencial: #9a4a2f;
+  --color-essencial-suave: #f6e5dd;
+
+  /* Status (sempre acompanhados de ícone e texto, nunca só cor). */
+  --color-status-comprar: #625c53;
+  --color-status-comprar-suave: #efebe4;
+  --color-status-comprado: #3a553d;
+  --color-status-comprado-suave: #e4ece2;
+  --color-status-ganhamos: #7a5a14;
+  --color-status-ganhamos-suave: #f5ecd3;
+
+  --color-perigo: #a3261d;
+  --color-perigo-suave: #f8e3e1;
+  --color-foco: #2f5f8f;
+
+  /* Tipografia: fonte do sistema (sem dependência externa), tamanhos fixos. */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.625rem;
+  --text-xl: 1.375rem;
+  --text-xl--line-height: 1.875rem;
+  --text-2xl: 1.75rem;
+  --text-2xl--line-height: 2.25rem;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Espaçamento: escala de 4px (p-1 = 4px, p-4 = 16px ...). */
+  --spacing: 0.25rem;
+
+  /* Raios e sombras. */
+  --radius-controle: 0.625rem;
+  --radius-card: 1rem;
+  --radius-imagem: 0.75rem;
+  --radius-pilula: 999px;
+  --shadow-card: 0 1px 2px rgb(42 40 37 / 0.06), 0 2px 8px rgb(42 40 37 / 0.05);
+  --shadow-flutuante: 0 6px 20px rgb(42 40 37 / 0.18);
+
+  /* Larguras fixas usadas pelos componentes padronizados. */
+  --container-aba: 8.5rem;
+  --container-conteudo: 80rem;
+  --container-formulario: 40rem;
+
+  /* Pontos de quebra do grid: 1 / 2 / 3 / 4 colunas. */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+}

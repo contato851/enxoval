@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#4a6a4d"/>
+  <!-- Body de bebê estilizado -->
+  <path fill="#f7f4ef" d="M196 112c8 28 32 44 60 44s52-16 60-44l78 34c10 4 15 15 12 25l-18 58c-3 10-14 16-24 13l-28-8v104c0 18-9 33-24 42l-6 4v18c0 10-8 18-18 18h-104c-10 0-18-8-18-18v-18l-6-4c-15-9-24-24-24-42V234l-28 8c-10 3-21-3-24-13l-18-58c-3-10 2-21 12-25z"/>
+  <circle cx="232" cy="380" r="9" fill="#4a6a4d"/>
+  <circle cx="280" cy="380" r="9" fill="#4a6a4d"/>
+</svg>
